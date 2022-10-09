@@ -137,3 +137,70 @@ if(isset($_GET['searchbar'])){
    </script>   
    </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------- next---------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="table" placeholder="table"> <br>
+        <input type="text" name="startingpoint" placeholder="startingpoint" > <br>
+        <input type="text" name="endingpoint" placeholder="endingpoint" > <br> 
+        <input type="submit" value="submit">
+    </form> 
+    <?php
+
+use function PHPSTORM_META\type;
+
+    if(isset($_GET['table']) && isset($_GET['startingpoint']) && isset($_GET['endingpoint'])){
+         $table=($_GET['table']);
+         $startingpoint=($_GET['startingpoint']);
+         $endingpoint=($_GET['endingpoint']);
+         $ProgramCondition=$startingpoint < $endingpoint ? 'sedha':'ulta';
+         switch ($ProgramCondition) {
+            case 'sedha':
+
+                
+
+for ($startingpoint;  $startingpoint<= $endingpoint; $startingpoint++) { 
+    echo "$table x $startingpoint = " . $startingpoint*$table."<br>";
+}
+
+
+                break;
+            case 'ulta':
+
+                for ($startingpoint;  $endingpoint<= $startingpoint; $startingpoint--) { 
+                    echo "$table x $startingpoint = " . $startingpoint*$table."<br>";
+                }
+
+
+
+
+                break;
+            
+            default:
+                echo "Insaan Ban!";
+                break;
+         }
+
+    }
+    ?>
+</body>
+</html>
