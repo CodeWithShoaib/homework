@@ -204,3 +204,91 @@ for ($startingpoint;  $startingpoint<= $endingpoint; $startingpoint++) {
     ?>
 </body>
 </html>
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Table Logic</title>
+   </head>
+   <body>
+      <form action="" method="get">
+         <input type="text" name="IT" placeholder="Initial Table">
+         <input type="text" name="FT" placeholder="Final Table">
+         <input type="text" name="IP" placeholder="Initial Point">
+         <input type="text" name="FP" placeholder="Final Point">
+         <input type="submit" value="submit">
+      </form>
+      <?php 
+         if(  isset($_GET['IT'])  && isset($_GET['FT'])   && isset($_GET['IP'])   && isset($_GET['FP'])){
+             $IT=$_GET['IT'];
+             $FT=$_GET['FT'];
+             
+
+             //  when innitial table is less than final table
+         
+         if($IT<$FT){
+             for ($IT; $IT<=$FT; $IT++){
+                 $IP=$_GET['IP'];
+                 $FP=$_GET['FP'];
+                 if($IP<$FP){
+                     for ($IP; $IP<=$FP; $IP++){
+                     echo $IT.'x'.$IP.'='.$IP*$IT;
+                     echo "<br>";
+         
+                 }
+         
+             
+             
+             
+                 echo "<br>";
+             }elseif($IP>$FP){
+                for ($IP; $IP>=$FP; $IP--){
+                    echo $IT.'x'.$IP.'='.$IP*$IT;
+                    echo "<br>";
+             }
+             
+         
+         
+         
+         }
+
+        }
+
+//  when innitial table is grreater than final table        
+    }
+         elseif  ($IT>$FT){
+            // echo "hello";
+        
+            for ($IT; $IT>=$FT; $IT--){
+                $IP=$_GET['IP'];
+                $FP=$_GET['FP'];
+                if($IP<$FP){
+                    for ($IP; $IP<=$FP; $IP++){
+                    echo $IT.'x'.$IP.'='.$IP*$IT;
+                    echo "<br>";
+        
+                }
+        
+            
+            
+            
+                echo "<br>";
+                // when initial point is greater than final point
+            }elseif ($IP>$FP){
+                for ($IP; $IP>=$FP; $IP--){
+                    echo $IT.'x'.$IP.'='.$IP*$IT;
+                    echo "<br>";
+            }
+        }
+             
+         }  
+         }
+        }  
+         ?>
+   </body>
+</html>
