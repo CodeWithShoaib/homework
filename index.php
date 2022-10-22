@@ -292,3 +292,184 @@ for ($startingpoint;  $startingpoint<= $endingpoint; $startingpoint++) {
          ?>
    </body>
 </html>
+--------------------------------------------
+22-10-2022
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Table Logic</title>
+      <style>
+         th, td {
+         border: 1px solid black;
+         }
+         table{
+            background-color: red;
+            color: white;
+         }
+         span{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+         }
+      </style>
+   </head>
+   <body>
+      <form action="" method="get">
+         <input type="text" name="IT" placeholder="Initial Table" class="initialtable">
+         <input type="text" name="FT" placeholder="Final Table" class="finaltable">
+         <input type="text" name="IP" placeholder="Initial Point" class="initialpoint">
+         <input type="text" name="FP" placeholder="Final Point" class="finalpoint">
+         <input type="submit" value="submit" id="btn">
+      </form>
+
+      <span>
+      <?php 
+         if(  isset($_GET['IT'])  && isset($_GET['FT'])   && isset($_GET['IP'])   && isset($_GET['FP'])){
+             $IT=$_GET['IT'];
+             $FT=$_GET['FT'];
+             
+         
+             //  when innitial table is less than final table
+         
+         if($IT<=$FT){
+             for ($IT; $IT<=$FT; $IT++){
+                 $IP=$_GET['IP'];
+                 $FP=$_GET['FP'];
+                 if($IP<=$FP){
+                     echo '<table>';
+                     echo '<h3>'.'Table OF '.$IT.'</h3>';   
+                     for ($IP; $IP<=$FP; $IP++){
+         
+                     echo '<tr>';
+                     echo '<td>'.$IT.'</td>'.'<td>'.'x'.'</td>'.'<td>'.$IP.'</td>'.'<td>'.'='.'</td>'.'<td>'.$IP*$IT.'</td>';
+                     echo '</tr>';
+                     
+                    }
+                    echo "<br>";
+         
+             
+             
+             
+                 
+             }elseif($IP>=$FP){
+                echo '<table>';
+                echo '<h3>'.'Table OF '.$IT.'</h3>';   
+                for ($IP; $IP>=$FP; $IP--){
+                    
+                    echo '<tr>';
+                    echo '<td>'.$IT.'</td>'.'<td>'.'x'.'</td>'.'<td>'.$IP.'</td>'.'<td>'.'='.'</td>'.'<td>'.$IP*$IT.'</td>';
+                    echo '</tr>';
+                    
+                    
+             }
+             echo '</table>';
+             
+             echo "<br>";
+         
+         
+         }
+         
+         }
+         
+         //  when innitial table is grreater than final table        
+         }
+         elseif  ($IT>=$FT){
+            // echo "hello";
+            
+         
+            for ($IT; $IT>=$FT; $IT--){
+                
+                $IP=$_GET['IP'];
+                $FP=$_GET['FP'];
+                if($IP<=$FP){
+                    echo '<table>';
+                    echo '<h3>'.'Table OF '.$IT.'</h3>';   
+                    for ($IP; $IP<=$FP; $IP++){
+                    echo '<tr>';
+                    echo '<td>'.$IT.'</td>'.'<td>'.'x'.'</td>'.'<td>'.$IP.'</td>'.'<td>'.'='.'</td>'.'<td>'.$IP*$IT.'</td>';
+                    echo '</tr>';
+                    
+         
+                }
+         
+                echo '</table>';
+            
+            
+            
+                echo "<br>";
+                // when initial point is greater than final point
+            }elseif ($IP>=$FP){
+                echo '<table>';
+                echo '<h3>'.'Table OF '.$IT.'</h3>';   
+                for ($IP; $IP>=$FP; $IP--){
+                    echo '<tr>';
+                    echo '<td>'.$IT.'</td>'.'<td>'.'x'.'</td>'.'<td>'.$IP.'</td>'.'<td>'.'='.'</td>'.'<td>'.$IP*$IT.'</td>';
+                    echo '</tr>';
+                    
+            }
+            echo '</table>';
+            echo "<br>";
+         }
+             
+         }  
+         }
+         }  
+         ?>
+         </span>
+      <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+      <script>
+         $(document).ready(function(){
+         $('#btn').click(function () {
+         $initialtable=$('.initialtable').val();
+         $finaltable=$('.finaltable').val();
+         $initialpoint=$('.initialpoint').val();
+         $finalpoint=$('.finalpoint').val();
+         alert("Your Table start from "+$initialtable);
+         alert("Your Table end at "+$finaltable);
+         alert('The Table starting point is '+$initialpoint);
+         alert('The Table ending point is '+$finalpoint);
+
+           })
+
+         
+         })
+         
+      </script>
+   </body>
+</html>
+
+
+--------------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <?php 
+        echo '<h1>Nested For Each in 2d Arrays</h1>';
+        $list=[
+            "biryani"=>array("sadibiryani"=>"allowali biryani","chickenbiryani"=>"chiken and aloo biryani","spacialbiryani"=>"beef and aloo biryani"),
+            "karhai"=>array("sadikarhai"=>"simple karhai","chickenkarhai"=>"medium karhai","specialchiken"=>"beef and aloo karhai"),
+            "daal"=>array("sadidaal"=>"4 daals","mediumdaal"=>"kali daal","speciladaal"=>"peli daal")
+        ];
+        foreach($list as $key=>$data){
+            foreach($data as $key=>$detail){
+                echo $key.'  :-'.$detail;
+                echo "<br>";
+            }
+            echo "<br>";
+        
+        }
+        
+        ?>
+    
+</body>
+</html>
