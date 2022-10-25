@@ -470,6 +470,87 @@ for ($startingpoint;  $startingpoint<= $endingpoint; $startingpoint++) {
         }
         
         ?>
-    
+    -----------------------------------------------------------------------------------------------------------------------
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GFG- Store Data</title>
+</head>
+
+<body>
+    <center>
+        <h1>Storing Form data in Database</h1>
+        <form action="index.php" method="post">
+
+            <div>
+                <label for="firstName">First Name:</label>
+                <input type="text" name="first_name" id="firstName">
+            </div>
+
+
+            <div>
+                <label for="lastName">Last Name:</label>
+                <input type="text" name="last_name" id="lastName">
+            </div>
+
+
+            <div>
+                <label for="emailAddress">Email Address:</label>
+                <input type="email" name="email" id="emailAddress">
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </center>
+</body>
+
+</html>
+
+<?php
+$conn = mysqli_connect("localhost", "root", "", "abc");
+if(isset($_POST['first_name'])  || isset($_POST['last_name'])  || isset($_POST['email']) ){
+
+
+    $first_name =  $_REQUEST['first_name'];
+    $last_name = $_REQUEST['last_name'];
+    $gender =  $_REQUEST['gender'];
+    $address = $_REQUEST['address'];
+    $email = $_REQUEST['email'];
+
+
+
+
+    $sql = "INSERT INTO  datainsert  VALUES ('$first_name',
+     '$last_name','$email')";
+
+if (mysqli_query($conn, $sql)) {
+    echo "<h3>data add hogya ha</h3>";
+
+    echo ("$first_name.'<br>'.$last_name.<br>.$email");
+} else {
+    echo "data is not add!";
+}
+
+}
+
+// Close connection
+mysqli_close($conn);
+?>
 </body>
 </html>
