@@ -475,17 +475,6 @@ for ($startingpoint;  $startingpoint<= $endingpoint; $startingpoint++) {
    
    
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    <!DOCTYPE html>
 <html lang="en">
 
@@ -496,7 +485,7 @@ for ($startingpoint;  $startingpoint<= $endingpoint; $startingpoint++) {
 <body>
     <center>
         <h1>Storing Form data in Database</h1>
-        <form action="index.php" method="post">
+        <form  method="post">
 
             <div>
                 <label for="firstName">First Name:</label>
@@ -522,24 +511,26 @@ for ($startingpoint;  $startingpoint<= $endingpoint; $startingpoint++) {
 
 </html>
 
+
+
+
+
+
 <?php
 $conn = mysqli_connect("localhost", "root", "", "abc");
 if(isset($_POST['first_name'])  || isset($_POST['last_name'])  || isset($_POST['email']) ){
 
 
-    $first_name =  $_REQUEST['first_name'];
-    $last_name = $_REQUEST['last_name'];
-    $gender =  $_REQUEST['gender'];
-    $address = $_REQUEST['address'];
-    $email = $_REQUEST['email'];
+    $first_name =  $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+     $email = $_POST['email'];
 
 
 
 
-    $sql = "INSERT INTO  datainsert  VALUES ('$first_name',
-     '$last_name','$email')";
-
-if (mysqli_query($conn, $sql)) {
+    $sql ="INSERT INTO datainsert( `first_name`, `last_name`, `email`) VALUES ('$first_name','$last_name','$email')";
+$datainsertquery=mysqli_query($conn, $sql);
+if ($datainsertquery) {
     echo "<h3>data add hogya ha</h3>";
 
     echo ("$first_name.'<br>'.$last_name.<br>.$email");
@@ -554,3 +545,88 @@ mysqli_close($conn);
 ?>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------
+27/10/2022
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+     <title>GFG- Store Data</title>
+ </head>
+
+ <body>
+     <center>
+         <h1>Updating Form data in Database</h1>
+         <form method="post">
+
+             <div>
+                 <label for="firstName">First Name:</label>
+                 <input type="text" name="first_name" id="firstName">
+             </div>
+
+
+             <div>
+                 <label for="lastName">Last Name:</label>
+                 <input type="text" name="last_name" id="lastName">
+             </div>
+
+
+             <div>
+                 <label for="emailAddress">Email Address:</label>
+                 <input type="email" name="email" id="emailAddress">
+             </div>
+
+             <input type="submit" value="Submit">
+         </form>
+     </center>
+ </body>
+
+ </html>
+
+
+
+
+
+
+ <?php
+    $conn = mysqli_connect("localhost", "root", "", "abc");
+    if (isset($_POST['first_name'])  || isset($_POST['last_name'])  || isset($_POST['email'])) {
+
+
+        $first_name =  $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $email = $_POST['email'];
+
+
+        $sql = "UPDATE `datainsert` SET `first_name`='$first_name',`last_name`='$last_name',`email`='$email' where id=1";
+        $datainsertquery = mysqli_query($conn, $sql);
+        if ($datainsertquery) {
+            echo "<h3>data add update ha</h3>";
+
+            echo ("$first_name<br>$last_name<br>$email");
+        } else {
+            echo "data is not update!";
+        }
+    }
+
+    // Close connection
+    mysqli_close($conn);
+    ?>
+ </body>
+
+ </html>
