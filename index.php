@@ -633,8 +633,7 @@ mysqli_close($conn);
 
 
 
----------------------------credentials-----------------------------
-talalkhuram703@gmail.com	
+---------------------------credentials-----------------------------talalkhuram703@gmail.com	
 dellcoei7
 https://www.facebook.com/profile.php?id=100087649162650
 
@@ -643,5 +642,25 @@ dellcorei7
 https://www.facebook.com/profile.php?id=100088129775837
 Youtube channel :-comfirt plastic
 https://twitter.com/ejazBut43521666
+
+
+gamilaccount:-
+j657549@gmail.com
+facebook passowrd:-)+6Z_f=F2%p4Lr7
+https://www.facebook.com/profile.php?id=100087638215526
+
+linkdink password:-
+dellcorei7
+jafer
+dob=9-2-2003
+instegram
+username:-jaferejaz
+password:-
+$$PK-9/QbhY+Aqd
+
+
+
+
+
 
 
